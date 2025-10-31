@@ -1,0 +1,106 @@
+.extension-container {
+  width: 350px; 
+  padding: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+.status {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #3f51b5; 
+    margin-bottom: 10px;
+}
+.input-group {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+.file-name {
+    font-size: 0.8em;
+    margin-top: 5px;
+    color: #2e7d32;
+}
+.analyze-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-bottom: 20px;
+  transition: background-color 0.2s;
+}
+.analyze-button:hover:not(:disabled) {
+    background-color: #388E3C;
+}
+.analyze-button:disabled {
+    background-color: #a5d6a7;
+    cursor: not-allowed;
+}
+.job-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 5px solid #2196F3; 
+  border-radius: 4px;
+}
+.job-card h3 {
+  margin-top: 0;
+  font-size: 1.1em;
+}
+.job-card a {
+  text-decoration: none;
+  color: #3f51b5;
+  font-weight: 600;
+}
+.company {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 5px;
+}
+.match-info {
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px dashed #eee;
+}
+.score {
+  font-weight: bold;
+  color: #e91e63; 
+  display: block;
+  margin-bottom: 5px;
+}
+.summary {
+  font-size: 0.85em;
+  color: #333;
+  font-style: italic;
+}
+.no-results {
+    color: #e91e63;
+    font-style: italic;
+    text-align: center;
+}
+
+/* --- DEBUG LOG STYLES --- */
+.debug-section {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px dashed #f00; /* Red dashed border for visibility */
+    background-color: #ffe0e0; /* Light red background */
+    max-height: 150px;
+    overflow-y: auto;
+    font-size: 0.75em;
+    font-family: monospace;
+}
+.debug-section h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #cc0000;
+}
+.debug-log-entry {
+    margin: 2px 0;
+    line-height: 1.2;
+    word-break: break-all;
+}

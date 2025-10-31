@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "AI Job Matcher (Side Panel)",
+  "version": "1.0",
+  "description": "Scrape job listings and match with your resume using AI",
+  "permissions": [
+    "sidePanel",
+    "storage",
+    "tabs",
+    "scripting",
+    "activeTab",
+    "cookies"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*",
+    "https://career-compass.web.app/*",
+    "https://career-compass.firebaseapp.com/*",
+    "https://securetoken.googleapis.com/*",
+   "http://localhost:5173/*/"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "action": {
+    "default_title": "Open Job Matcher"
+  }
+}
