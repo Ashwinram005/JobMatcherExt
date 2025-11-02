@@ -1,7 +1,7 @@
   // src/background.ts
   import { firebaseConfig } from "./firebase";
 
-  const LOGIN_URL = "http://localhost:5173";
+  const LOGIN_URL = "https://career-compass-lyart-ten.vercel.app/";
   const RESUME_API_URL = "https://sound-guiding-mammoth.ngrok-free.app/api/firebase/resumes";
 
   chrome.action.onClicked.addListener(async (tab) => {
@@ -13,7 +13,7 @@
   /* ---- CHECK AUTH ---- */
   async function isAuthenticated(): Promise<{ isAuth: boolean; email?: string }> {
     const cookie = await chrome.cookies.get({
-      url: "http://localhost:5173",
+      url: "https://career-compass-lyart-ten.vercel.app/",
       name: "ext_auth",
     });
 
@@ -48,7 +48,7 @@
     displayName: string;
   } | null> {
     const cookie = await chrome.cookies.get({
-      url: "http://localhost:5173",
+      url: "https://career-compass-lyart-ten.vercel.app/",
       name: "ext_auth",
     });
     if (!cookie) return null;

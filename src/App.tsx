@@ -228,7 +228,7 @@ export default function App() {
           Login Required
         </h2>
         <button
-          onClick={() => chrome.tabs.create({ url: "http://localhost:5173/" })}
+          onClick={() => chrome.tabs.create({ url: "https://career-compass-lyart-ten.vercel.app/" })}
           className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
         >
           Open Login Page
