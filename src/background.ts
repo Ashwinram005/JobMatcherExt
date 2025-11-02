@@ -2,7 +2,7 @@
   import { firebaseConfig } from "./firebase";
 
   const LOGIN_URL = "https://career-compass-lyart-ten.vercel.app/";
-  const RESUME_API_URL = "https://sound-guiding-mammoth.ngrok-free.app/api/firebase/resumes";
+  const RESUME_API_URL = "https://chrome-ext-yj1n.onrender.com/api/firebase/resumes";
 
   chrome.action.onClicked.addListener(async (tab) => {
     if (tab?.windowId !== undefined) {
@@ -157,9 +157,17 @@ if (msg.action === "SEND_TO_BACKEND") {
   if (!(await isAuthenticated()).isAuth) {
     return sendResponse({ success: false, error: "Login required" });
   }
+  const cookie = await chrome.cookies.get({
+   url: "https://career-compass-lyart-ten.vercel.app/",
+   name: "ext_auth",
+ });
+ if (!cookie) return null;
 
   try {
     // 1. Resume → Blob
+ const idToken = cookie.value;
+      const payload = JSON.parse(atob(idToken.split(".")[1]));
+      const userId = payload.sub ?? payload.user_id; // Firebase uses `sub`
     const resumeBuffer = new Uint8Array(msg.resumeBuffer);
     const resumeBlob = new Blob([resumeBuffer], { type: "application/pdf" });
 
@@ -172,12 +180,13 @@ if (msg.action === "SEND_TO_BACKEND") {
     // → json_body as JSON string
     const jsonBody = {
       urls: msg.urls,  // array of job URLs
+      user_id: userId,
     };
     fd.append("json_body", JSON.stringify(jsonBody));
     
     // 3. Send
     const res = await fetch(
-      "https://sound-guiding-mammoth.ngrok-free.app/api/match-jobs",
+      "https://chrome-ext-yj1n.onrender.com/api/match-jobs",
       {
         method: "POST",
         body: fd,
